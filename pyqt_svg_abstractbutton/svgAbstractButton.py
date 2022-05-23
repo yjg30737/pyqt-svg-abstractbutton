@@ -120,6 +120,14 @@ class SvgAbstractButton(QAbstractButton):
         if obj == self.__baseWidget:
             # catch the StyleChange event of base widget
             if e.type() == 100:
+                # if base widget's background is transparent (#ffffff)
+                if self.__baseWidget.palette().color(QPalette.Base).name() == '#ffffff':
+                    # then check the parent widget's background
+                    if self.__baseWidget.parent():
+                        if self.__baseWidget.parent().palette().color(QPalette.Base).name() == '#ffffff':
+                            pass
+                        else:
+                            self.__baseWidget = self.__baseWidget.parent()
                 self.__initColorByBaseWidget()
                 self.__styleInit()
         return super().eventFilter(obj, e)
