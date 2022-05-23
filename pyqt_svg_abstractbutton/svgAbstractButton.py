@@ -96,7 +96,6 @@ class SvgAbstractButton(QAbstractButton):
         '''
 
         self.setStyleSheet(self.__btn_style)
-        self.setFixedSize(self.sizeHint().width(), self.sizeHint().height())
 
     def setIcon(self, icon: str):
         self.__icon = absresgetter.getabsres(icon)
