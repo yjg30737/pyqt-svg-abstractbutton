@@ -60,8 +60,7 @@ class SvgAbstractButton(QAbstractButton):
         if r == g == b:
             text_color = QColor(r, g, b)
         else:
-            gray = qGray(r, g, b)
-            if gray > 255 // 2:
+            if qGray(r, g, b) > 255 // 2:
                 text_color = QColor(255, 255, 255)
             else:
                 text_color = QColor(0, 0, 0)
