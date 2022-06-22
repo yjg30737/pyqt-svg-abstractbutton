@@ -1,5 +1,5 @@
 from PyQt5.QtGui import QColor, QPalette, qGray
-from PyQt5.QtWidgets import QAbstractButton, QGraphicsColorizeEffect, QWidget
+from PyQt5.QtWidgets import QAbstractButton, QGraphicsColorizeEffect, QWidget, qApp
 import absresgetter
 
 
@@ -11,7 +11,7 @@ class SvgAbstractButton(QAbstractButton):
         self.__styleInit()
 
     def __initVal(self):
-        self.__size = self.font().pointSize() * 2
+        self.__size = qApp.screens()[0].logicalDotsPerInch() // 5
         self.__padding = self.__border_radius = self.__size // 10
         self.__background_color = 'transparent'
         self.__icon = ''
