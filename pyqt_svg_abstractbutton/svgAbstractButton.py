@@ -11,7 +11,10 @@ class SvgAbstractButton(QAbstractButton):
         self.__styleInit()
 
     def __initVal(self):
-        self.__size = qApp.screens()[0].logicalDotsPerInch() // 5
+        # to set size accordance with scale
+        sc = qApp.screens()[0]
+        sc.logicalDotsPerInchChanged.connect(self.__scaleChanged)
+        self.__size = sc.logicalDotsPerInch() // 4
         self.__padding = self.__border_radius = self.__size // 10
         self.__background_color = 'transparent'
         self.__icon = ''
@@ -147,4 +150,9 @@ class SvgAbstractButton(QAbstractButton):
 
     def setAsCircle(self):
         self.setBorderRadius(self.height() // 2)
+        self.__styleInit()
+
+    # to set size accordance with scale
+    def __scaleChanged(self, dpi):
+        self.__size = dpi // 4
         self.__styleInit()
