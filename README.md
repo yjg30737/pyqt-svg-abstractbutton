@@ -3,6 +3,7 @@ PyQt QAbstractButton for <a href="https://github.com/yjg30737/pyqt-svg-button.gi
 
 ## Requirements
 * PyQt5 >= 5.8
+* <a href="https://github.com/yjg30737/absresgetter">absresgetter</a>
 
 ## Setup
 `python -m pip install pyqt-svg-abstractbutton`
