@@ -1,1 +1,3 @@
-absresgetter
+absresgetter~=0.0.12
+setuptools~=57.4.0
+PyQt6~=6.7.1
